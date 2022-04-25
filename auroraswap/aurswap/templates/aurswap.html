@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+<div style="margin-top:30px" class="row"><div style="margin-top:30px" class="row">
+    <blockquote class="blockquote">
+        <h1 class="display-6">AuroraSWAP Pool APR</h1>
+    </blockquote>
+</div>
+<div style="margin-top:30px" class="row">
+    <div class="col-md-5">
+        {% if res %}
+        <a href="{% url 'get_apr' %}" class="btn btn-dark mb-3">Refresh</a>
+        <div class="card">
+            <div class="card-body">
+                <ul class="list-group">                    
+                    <li class="list-group-item"><strong>Tocken Tiker: </strong>{{res.tokenTicker}} Uni LP</li> 
+                    <li class="list-group-item"><strong>Yearly APR: </strong> {{res.YearlyAPR}}%</li> 
+                </ul>
+            </div>
+        </div>    
+        {% else %}
+        <a href="{% url 'get_apr' %}" class="btn btn-dark">Get APR</a>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
